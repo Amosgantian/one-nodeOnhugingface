@@ -2,8 +2,8 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: ["main"]   # 代码 push 到 main 分支时触发
-  workflow_dispatch:      # 手动触发（GitHub Actions 页面点按钮）
+    branches: ["main"]   # push 到 main 分支触发
+  workflow_dispatch:      # 允许手动触发
 
 jobs:
   build:
@@ -22,5 +22,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
+          context: ./hugging-face         # 👈 代码目录
+          file: ./hugging-face/Dockerfile # 👈 Dockerfile 路径
           push: true
           tags: amosgantian/amsgsrxp:latest
