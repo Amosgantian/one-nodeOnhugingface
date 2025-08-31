@@ -1,0 +1,77 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "dns": {
+    "servers": [
+      "1.1.1.1",
+      "8.8.8.8"
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "port": 7860,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "hf-xhttp",
+            "id": "UUID"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        // "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/app/xy/cert.pem",
+              "keyFile": "/app/xy/key.pem"
+            }
+          ]
+        },//
+        "wsSettings": {
+          "path": "/ws",
+          "headers": {
+            "Host": "amsgs-rxhp.hf.space"
+          }
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "domain": [
+          "v.com"
+        ],
+        "outboundTag": "force-to-ip"
+      }
+    ]
+  },
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP"
+      }
+    },
+    {
+      "tag": "force-to-ip",
+      "protocol": "freedom",
+      "settings": {
+        "redirect": "127.0.0.1:0"
+      }
+    }
+  ]
+}
