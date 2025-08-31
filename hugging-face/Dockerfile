@@ -9,7 +9,7 @@ RUN apt-get update; \
     rm -f Xray-linux-64.zip; \
     mv xray xy; \
     wget -O cd https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64; \
-    chmod +x cd
+    chmod +x cd; \
     wget -O td https://github.com/tsl0922/ttyd/releases/latest/download/ttyd.x86_64; \
     chmod +x td; \
     wget -O supercronic https://github.com/aptible/supercronic/releases/latest/download/supercronic-linux-amd64; \
