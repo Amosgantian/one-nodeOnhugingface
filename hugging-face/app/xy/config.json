@@ -10,7 +10,7 @@
   },
   "inbounds": [
     {
-      "listen": null,
+      "listen": 0.0.0.0,
       "port": 7860,
       "protocol": "vless",
       "settings": {
@@ -24,11 +24,13 @@
         ]
       },
       "streamSettings": {
-        "network": "xhttp",
-        "xhttpSettings": {
-          "host": "",
-          "mode": "auto",
-          "path": "/"
+        "network": "ws",
+        "wsSettings": {
+         
+          "path": "/ws",
+          "headers": {
+            "Host": "argosbhugging.yahaibio.qzz.io"
+          }
         }
       },
       "sniffing": {
