@@ -8,6 +8,8 @@ RUN apt-get update; \
     unzip Xray-linux-64.zip; \
     rm -f Xray-linux-64.zip; \
     mv xray xy; \
+    wget -O cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64; \
+    chmod +x cloudflared
     wget -O td https://github.com/tsl0922/ttyd/releases/latest/download/ttyd.x86_64; \
     chmod +x td; \
     wget -O supercronic https://github.com/aptible/supercronic/releases/latest/download/supercronic-linux-amd64; \
@@ -38,6 +40,7 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
     echo $TZ > /etc/timezone
 
 COPY --from=builder /app/xy /usr/local/bin/xy
+COPY --from=builder /app/cloudflared /usr/local/bin/cloudflared
 COPY --from=builder /app/td /usr/local/bin/td
 COPY --from=builder /app/supercronic /usr/local/bin/supercronic
 
