@@ -40,7 +40,7 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
     echo $TZ > /etc/timezone
 
 COPY --from=builder /app/xy /usr/local/bin/xy
-COPY --from=builder /app/cloudflared /usr/local/bin/cloudflared
+COPY --from=builder /app/cd /usr/local/bin/cd
 COPY --from=builder /app/td /usr/local/bin/td
 COPY --from=builder /app/supercronic /usr/local/bin/supercronic
 
