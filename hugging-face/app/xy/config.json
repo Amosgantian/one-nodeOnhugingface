@@ -25,7 +25,7 @@
       },
       "streamSettings": {
         "network": "ws",
-        "security": "tls",
+       // "security": "tls",
         "tlsSettings": {
           "certificates": [
             {
@@ -33,11 +33,11 @@
               "keyFile": "/app/xy/key.pem"
             }
           ]
-        },
+        },//
         "wsSettings": {
           "path": "/ws",
           "headers": {
-            "Host": "argosbhugging.yahaibio.qzz.io"
+            "Host": "amsgs-rxhp.hf.space"
           }
         }
       },
